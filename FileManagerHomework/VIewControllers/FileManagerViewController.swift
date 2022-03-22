@@ -10,20 +10,10 @@ import UIKit
 class FileManagerViewController: UIViewController {
     
     private let fileManager = FileManager.default
-    private var currentDirectoryURL: URL
+    private lazy var documentsURL = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+
     private var directoryContent: [URL] = []
 
-    init(directoryURL:URL) {
-        self.currentDirectoryURL = directoryURL
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-  //  private var content: [URL] = []
-    
     private lazy var collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(
@@ -41,22 +31,16 @@ class FileManagerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupFileManager()
         setupNavBar()
         setupCollectionView()
-        setupFileManager()
     }
     
-    private func setupCollectionView() {
-        view.addSubview(collectionView)
-        
-        let constraints = [
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ]
-        
-        NSLayoutConstraint.activate(constraints)
+    private func setupFileManager() {
+        self.directoryContent = try! fileManager.contentsOfDirectory(
+            at: documentsURL,
+            includingPropertiesForKeys: nil,
+            options: [])
     }
     
     private func setupNavBar() {
@@ -73,11 +57,17 @@ class FileManagerViewController: UIViewController {
         present(picker, animated: true)
     }
     
-    private func setupFileManager() {
-        self.directoryContent = try! fileManager.contentsOfDirectory(
-            at: currentDirectoryURL,
-            includingPropertiesForKeys: nil,
-            options: [])
+    private func setupCollectionView() {
+        view.addSubview(collectionView)
+        
+        let constraints = [
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ]
+        
+        NSLayoutConstraint.activate(constraints)
     }
 }
 
@@ -92,16 +82,14 @@ extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UIColle
         
         let pictureURL = directoryContent[indexPath.item]
         cell.nameLabel.text = "Photo \(indexPath.item + 1)"
-      //  let path = getDocumentsDirectory().appendingPathComponent(picture.image)
         cell.imageView.image = UIImage(contentsOfFile: pictureURL.path)
-        cell.imageView.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
-        cell.imageView.layer.borderWidth = 2
-        cell.imageView.layer.cornerRadius = 3
-        cell.backgroundColor = .white
-        cell.layer.cornerRadius = 7
+
+        //delete action on swipe
         
         return cell
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return directoryContent.count
@@ -140,8 +128,7 @@ extension FileManagerViewController: UIImagePickerControllerDelegate, UINavigati
         let data = image.pngData()
         let imageURL = info[.imageURL] as! URL
         let imageName = imageURL.lastPathComponent
-        
-        let imagePath = currentDirectoryURL.appendingPathComponent("Photo - \(imageName)")
+        let imagePath = documentsURL.appendingPathComponent("Photo - \(imageName)")
 
         fileManager.createFile(
             atPath: imagePath.path,
@@ -153,9 +140,5 @@ extension FileManagerViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
-extension UIView {
-    func toAutoLayout() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-}
+
 

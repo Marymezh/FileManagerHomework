@@ -13,6 +13,9 @@ class CollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.layer.borderColor = UIColor.black.cgColor
+        image.layer.borderWidth = 1
+        image.layer.cornerRadius = 3
         image.toAutoLayout()
         return image
     }()
@@ -28,6 +31,14 @@ class CollectionViewCell: UICollectionViewCell {
     
     private let containerView: UIView = {
     let container = UIView()
+        container.backgroundColor = .white
+        container.layer.cornerRadius = 7
+        container.layer.borderWidth = 1
+        container.layer.borderColor = UIColor.black.cgColor
+        container.layer.shadowOffset = CGSize(width: 4, height: 4)
+        container.layer.shadowColor = UIColor.black.cgColor
+        container.layer.shadowRadius = 7
+        container.layer.shadowOpacity = 0.5
         container.toAutoLayout()
         return container
     }()
