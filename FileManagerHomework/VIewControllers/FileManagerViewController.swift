@@ -12,8 +12,9 @@ class FileManagerViewController: UIViewController {
     
     private let fileManager = FileManager.default
     private lazy var documentsURL = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-
     private var directoryContent: [URL] = []
+    
+
 
     private lazy var collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -45,7 +46,7 @@ class FileManagerViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        navigationItem.title = "File Manager"
+        navigationItem.title = "Pictures Directory"
         navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPhoto))
         navigationItem.rightBarButtonItem?.tintColor = .black
@@ -119,9 +120,11 @@ extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UIColle
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, IndexPath in
+            let imagePath = self.directoryContent[indexPath.item]
+            try! self.fileManager.removeItem(at: imagePath)
             self.directoryContent.remove(at: IndexPath.item)
             self.collectionView.reloadData()
-        }
+            }
         deleteAction.image = UIImage(named: "delete")
         
         return [deleteAction]

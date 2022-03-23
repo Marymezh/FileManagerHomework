@@ -79,13 +79,13 @@
 		CE47B66C27DF398D00D6DA3D /* FileManagerHomework */ = {
 			isa = PBXGroup;
 			children = (
-				CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */,
-				CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */,
 				1A254F9927E8760000083C94 /* VIewControllers */,
-				1A254F9327E5E05800083C94 /* CollectionViewCell.swift */,
 				1A254F9A27E8761600083C94 /* Extensions */,
+				1A254F9327E5E05800083C94 /* CollectionViewCell.swift */,
 				CE47B67627DF399B00D6DA3D /* Assets.xcassets */,
 				CE47B67827DF399B00D6DA3D /* LaunchScreen.storyboard */,
+				CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */,
+				CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */,
 				CE47B67B27DF399B00D6DA3D /* Info.plist */,
 			);
 			path = FileManagerHomework;
