@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwipeCellKit
 
 class FileManagerViewController: UIViewController {
     
@@ -71,8 +72,8 @@ class FileManagerViewController: UIViewController {
     }
 }
 
-extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    
+extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, SwipeCollectionViewCellDelegate {
+   
     private var baseInset: CGFloat { return 8 }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,26 +84,20 @@ extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UIColle
         let pictureURL = directoryContent[indexPath.item]
         cell.nameLabel.text = "Photo \(indexPath.item + 1)"
         cell.imageView.image = UIImage(contentsOfFile: pictureURL.path)
-
-        //delete action on swipe
-        
+        cell.delegate = self
         return cell
     }
-    
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return directoryContent.count
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       
-        
+    
         let pictureURL = directoryContent[indexPath.item]
         let photoVC = SelectedPictureViewController()
         photoVC.imageView.image = UIImage(contentsOfFile: pictureURL.path)
         navigationController?.present(photoVC, animated: true)
-        
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -119,6 +114,17 @@ extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UIColle
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: baseInset, left: baseInset, bottom: .zero, right: baseInset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, IndexPath in
+            self.directoryContent.remove(at: IndexPath.item)
+            self.collectionView.reloadData()
+        }
+        deleteAction.image = UIImage(named: "delete")
+        
+        return [deleteAction]
     }
 }
 

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class CollectionViewCell: UICollectionViewCell {
+class CollectionViewCell: SwipeCollectionViewCell {
 
     let imageView: UIImageView = {
         let image = UIImageView()
