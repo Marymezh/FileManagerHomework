@@ -3,24 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A254F9427E5E05800083C94 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254F9327E5E05800083C94 /* CollectionViewCell.swift */; };
+		1A254F9827E83C1F00083C94 /* SelectedPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254F9727E83C1F00083C94 /* SelectedPictureViewController.swift */; };
+		1A254F9C27E8763200083C94 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254F9B27E8763200083C94 /* UIViewExtension.swift */; };
+		1A254FA127E9BB3C00083C94 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A254FA027E9BB3C00083C94 /* SwipeCellKit */; };
 		CE47B66E27DF398D00D6DA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */; };
 		CE47B67027DF398D00D6DA3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */; };
-		CE47B67227DF398D00D6DA3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B67127DF398D00D6DA3D /* ViewController.swift */; };
-		CE47B67527DF398D00D6DA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE47B67327DF398D00D6DA3D /* Main.storyboard */; };
+		CE47B67227DF398D00D6DA3D /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B67127DF398D00D6DA3D /* FileManagerViewController.swift */; };
 		CE47B67727DF399B00D6DA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE47B67627DF399B00D6DA3D /* Assets.xcassets */; };
 		CE47B67A27DF399B00D6DA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE47B67827DF399B00D6DA3D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A254F9327E5E05800083C94 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		1A254F9727E83C1F00083C94 /* SelectedPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPictureViewController.swift; sourceTree = "<group>"; };
+		1A254F9B27E8763200083C94 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		CE47B66A27DF398D00D6DA3D /* FileManagerHomework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManagerHomework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE47B67127DF398D00D6DA3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE47B67427DF398D00D6DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE47B67127DF398D00D6DA3D /* FileManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerViewController.swift; sourceTree = "<group>"; };
 		CE47B67627DF399B00D6DA3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE47B67927DF399B00D6DA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE47B67B27DF399B00D6DA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,12 +36,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A254FA127E9BB3C00083C94 /* SwipeCellKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A254F9927E8760000083C94 /* VIewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE47B67127DF398D00D6DA3D /* FileManagerViewController.swift */,
+				1A254F9727E83C1F00083C94 /* SelectedPictureViewController.swift */,
+			);
+			path = VIewControllers;
+			sourceTree = "<group>";
+		};
+		1A254F9A27E8761600083C94 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A254F9B27E8763200083C94 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CE47B66127DF398D00D6DA3D = {
 			isa = PBXGroup;
 			children = (
@@ -56,12 +79,13 @@
 		CE47B66C27DF398D00D6DA3D /* FileManagerHomework */ = {
 			isa = PBXGroup;
 			children = (
-				CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */,
-				CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */,
-				CE47B67127DF398D00D6DA3D /* ViewController.swift */,
-				CE47B67327DF398D00D6DA3D /* Main.storyboard */,
+				1A254F9927E8760000083C94 /* VIewControllers */,
+				1A254F9A27E8761600083C94 /* Extensions */,
+				1A254F9327E5E05800083C94 /* CollectionViewCell.swift */,
 				CE47B67627DF399B00D6DA3D /* Assets.xcassets */,
 				CE47B67827DF399B00D6DA3D /* LaunchScreen.storyboard */,
+				CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */,
+				CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */,
 				CE47B67B27DF399B00D6DA3D /* Info.plist */,
 			);
 			path = FileManagerHomework;
@@ -83,6 +107,9 @@
 			dependencies = (
 			);
 			name = FileManagerHomework;
+			packageProductDependencies = (
+				1A254FA027E9BB3C00083C94 /* SwipeCellKit */,
+			);
 			productName = FileManagerHomework;
 			productReference = CE47B66A27DF398D00D6DA3D /* FileManagerHomework.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +137,9 @@
 				Base,
 			);
 			mainGroup = CE47B66127DF398D00D6DA3D;
+			packageReferences = (
+				1A254F9F27E9BB3B00083C94 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+			);
 			productRefGroup = CE47B66B27DF398D00D6DA3D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,7 +156,6 @@
 			files = (
 				CE47B67A27DF399B00D6DA3D /* LaunchScreen.storyboard in Resources */,
 				CE47B67727DF399B00D6DA3D /* Assets.xcassets in Resources */,
-				CE47B67527DF398D00D6DA3D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +166,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE47B67227DF398D00D6DA3D /* ViewController.swift in Sources */,
+				1A254F9C27E8763200083C94 /* UIViewExtension.swift in Sources */,
+				CE47B67227DF398D00D6DA3D /* FileManagerViewController.swift in Sources */,
 				CE47B66E27DF398D00D6DA3D /* AppDelegate.swift in Sources */,
+				1A254F9427E5E05800083C94 /* CollectionViewCell.swift in Sources */,
 				CE47B67027DF398D00D6DA3D /* SceneDelegate.swift in Sources */,
+				1A254F9827E83C1F00083C94 /* SelectedPictureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CE47B67327DF398D00D6DA3D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE47B67427DF398D00D6DA3D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE47B67827DF399B00D6DA3D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -339,6 +363,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A254F9F27E9BB3B00083C94 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A254FA027E9BB3C00083C94 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A254F9F27E9BB3B00083C94 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE47B66227DF398D00D6DA3D /* Project object */;
 }
