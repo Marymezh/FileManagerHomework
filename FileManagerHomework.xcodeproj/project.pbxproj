@@ -11,6 +11,8 @@
 		1A254F9827E83C1F00083C94 /* SelectedPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254F9727E83C1F00083C94 /* SelectedPictureViewController.swift */; };
 		1A254F9C27E8763200083C94 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254F9B27E8763200083C94 /* UIViewExtension.swift */; };
 		1A254FA127E9BB3C00083C94 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A254FA027E9BB3C00083C94 /* SwipeCellKit */; };
+		1A254FA827EB20A000083C94 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A254FA727EB20A000083C94 /* LoginViewController.swift */; };
+		1A254FAB27EC3C8A00083C94 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1A254FAA27EC3C8A00083C94 /* KeychainAccess */; };
 		CE47B66E27DF398D00D6DA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */; };
 		CE47B67027DF398D00D6DA3D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */; };
 		CE47B67227DF398D00D6DA3D /* FileManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47B67127DF398D00D6DA3D /* FileManagerViewController.swift */; };
@@ -22,6 +24,7 @@
 		1A254F9327E5E05800083C94 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		1A254F9727E83C1F00083C94 /* SelectedPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPictureViewController.swift; sourceTree = "<group>"; };
 		1A254F9B27E8763200083C94 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		1A254FA727EB20A000083C94 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE47B66A27DF398D00D6DA3D /* FileManagerHomework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManagerHomework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE47B66D27DF398D00D6DA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE47B66F27DF398D00D6DA3D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A254FAB27EC3C8A00083C94 /* KeychainAccess in Frameworks */,
 				1A254FA127E9BB3C00083C94 /* SwipeCellKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +83,7 @@
 		CE47B66C27DF398D00D6DA3D /* FileManagerHomework */ = {
 			isa = PBXGroup;
 			children = (
+				1A254FA727EB20A000083C94 /* LoginViewController.swift */,
 				1A254F9927E8760000083C94 /* VIewControllers */,
 				1A254F9A27E8761600083C94 /* Extensions */,
 				1A254F9327E5E05800083C94 /* CollectionViewCell.swift */,
@@ -109,6 +114,7 @@
 			name = FileManagerHomework;
 			packageProductDependencies = (
 				1A254FA027E9BB3C00083C94 /* SwipeCellKit */,
+				1A254FAA27EC3C8A00083C94 /* KeychainAccess */,
 			);
 			productName = FileManagerHomework;
 			productReference = CE47B66A27DF398D00D6DA3D /* FileManagerHomework.app */;
@@ -139,6 +145,7 @@
 			mainGroup = CE47B66127DF398D00D6DA3D;
 			packageReferences = (
 				1A254F9F27E9BB3B00083C94 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				1A254FA927EC3C8A00083C94 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = CE47B66B27DF398D00D6DA3D /* Products */;
 			projectDirPath = "";
@@ -166,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A254FA827EB20A000083C94 /* LoginViewController.swift in Sources */,
 				1A254F9C27E8763200083C94 /* UIViewExtension.swift in Sources */,
 				CE47B67227DF398D00D6DA3D /* FileManagerViewController.swift in Sources */,
 				CE47B66E27DF398D00D6DA3D /* AppDelegate.swift in Sources */,
@@ -373,6 +381,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		1A254FA927EC3C8A00083C94 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -380,6 +396,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1A254F9F27E9BB3B00083C94 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
 			productName = SwipeCellKit;
+		};
+		1A254FAA27EC3C8A00083C94 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A254FA927EC3C8A00083C94 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
