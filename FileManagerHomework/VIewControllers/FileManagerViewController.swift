@@ -14,8 +14,6 @@ class FileManagerViewController: UIViewController {
     private lazy var documentsURL = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
     private var directoryContent: [URL] = []
     
-
-
     private lazy var collectionView: UICollectionView = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(
@@ -38,6 +36,11 @@ class FileManagerViewController: UIViewController {
         setupCollectionView()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     private func setupFileManager() {
         self.directoryContent = try! fileManager.contentsOfDirectory(
             at: documentsURL,
@@ -46,12 +49,19 @@ class FileManagerViewController: UIViewController {
     }
     
     private func setupNavBar() {
+        navigationController?.navigationBar.isHidden = false
         navigationItem.title = "Pictures Directory"
-        navigationItem.leftBarButtonItem = nil
+//        navigationItem.leftBarButtonItem = nil
+//        navigationItem.hidesBackButton = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(dismissVC))
+        navigationItem.leftBarButtonItem?.tintColor = .red
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addPhoto))
         navigationItem.rightBarButtonItem?.tintColor = .black
     }
     
+    @objc func dismissVC() {
+        navigationController?.popToRootViewController(animated: true)
+    }
     @objc func addPhoto() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -98,6 +108,7 @@ extension FileManagerViewController: UICollectionViewDelegateFlowLayout, UIColle
         let pictureURL = directoryContent[indexPath.item]
         let photoVC = SelectedPictureViewController()
         photoVC.imageView.image = UIImage(contentsOfFile: pictureURL.path)
+        
         navigationController?.present(photoVC, animated: true)
     }
 

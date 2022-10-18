@@ -34,7 +34,7 @@ class SelectedPictureViewController: UIViewController {
         setupIU()
     }
     
-    func setupIU () {
+   private func setupIU () {
         view.addSubview(backgroundView)
         view.addSubview(imageView)
         
